@@ -1,4 +1,4 @@
-function mutateString(str::AbstractString, substitude::AbstractChar, Index::Integer)
+function mutateString(str::AbstractString, substitude::AbstractChar, index::Integer)
     front = str[1:index-1]
     posterior = str[index+1:end]
     str = front * substitude * posterior
@@ -18,3 +18,16 @@ function mutateString(str::AbstractString, substitude::AbstractString, startInde
     return str
 end
 
+function stringDrop(str::AbstractString, index::Integer)
+    front = str[1:index-1]
+    posterior = str[index+1:end]
+    str = front * posterior
+    return str
+end
+
+function stringDrop(str::AbstractString, startIndex::Integer, endIndex::Integer)
+    front = str[1:startIndex-1]
+    posterior = str[endIndex+1:end]
+    str = front * posterior
+    return str
+end
